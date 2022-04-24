@@ -1,6 +1,7 @@
 <?php
 include 'koneksi.php';
 $tgl = date('Y-m-d');
+$p = $_GET['p'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,8 @@ $tgl = date('Y-m-d');
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Hi, Admin</div>
-                        <a class="nav-link" href="index.php?p=beranda">
+                        <a class="nav-link <?= ($p == "beranda" || $p == "") ? "active" : ""; ?>"
+                            href="index.php?p=beranda">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -68,16 +70,16 @@ $tgl = date('Y-m-d');
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="layout-static.html">Peminjaman</a>
+                                <a class="nav-link" href="index.php?p=transaksi">Peminjaman</a>
                             </nav>
                         </div>
 
                         <div class="sb-sidenav-menu-heading">Laporan</div>
-                        <a class="nav-link" href="charts.html">
+                        <a class="nav-link" href="cetak/anggota.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Lap. Data Anggota
                         </a>
-                        <a class="nav-link" href="tables.html">
+                        <a class="nav-link" href="cetak/buku.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Lap. Data Buku
                         </a>
