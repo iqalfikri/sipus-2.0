@@ -1,7 +1,12 @@
 <?php
+session_start();
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 include 'koneksi.php';
 $tgl = date('Y-m-d');
-$p = $_GET['p'];
+$p = isset($_GET['p']) ? $_GET['p'] : "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +87,11 @@ $p = $_GET['p'];
                         <a class="nav-link" href="cetak/buku.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Lap. Data Buku
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Authentication</div>
+                        <a class="nav-link" href="logout.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            Logout
                         </a>
                     </div>
                 </div>
